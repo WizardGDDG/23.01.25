@@ -1,46 +1,55 @@
 #include <iostream>
 
-int* sd(std::string arr[][4], const int stroka, const int stolb)
-{	
+int sd(int arr[][4])
+{
+	int arr2[4][4];
 	
-	std::string arr2[4][5];
-	for (int i = 0; i < 3; i++)
+ 	for (int i = 0; i < 4; i++)
+	{
+		if (i != 3)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				arr2[i][j] = arr[i][j];
+			}
+		}
+		else
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				arr2[i][j] = 0;
+			}
+		}
+		
+	}
+	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			arr2[i][j] = arr[i][j];
-		
-		}
-	}
-	for (int i = 0; i < 3; i++)
-	{
-		arr2[i][stolb] = "wddw";
-		
-	}
-
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 5; j++)
-		{
 			std::cout << arr2[i][j];
+			if (j == 3)
+			{
+				std::cout << std::endl;
+			}
 		}
 	}
 	return 0;
 }
 int main()
 {
-
+	
 	setlocale(LC_ALL, "rus");
 	const int stroka = 3;
 	const int stolb = 4;
-	std::string arr[stroka][stolb] =
+	int index1 = 1;
+	int arr[stroka][stolb] =
 	{
-		{"1","2","3","4"},
-		{"5","6","7","8"},
-		{"9","10","11","12"}
+		{1,2,3,4},
+		{5,6,7,8},
+		{9,10,11,12}
 	};
 	
-	sd(arr, stroka, stolb);
+	sd(arr);
 	
 }
 
