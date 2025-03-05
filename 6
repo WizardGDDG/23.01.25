@@ -1,0 +1,42 @@
+#include <iostream>
+void Rd(int arr[][4], int index)
+{
+    int arr2[3][3];
+ 
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            arr2[i][j] = arr[i][j];
+            if (j == index)
+            {
+                arr2[i][j] = arr[i][j+1];
+            }
+        }
+    }
+
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            std::cout << arr2[i][j];
+            if (j == 2)
+            {
+                std::cout << std::endl;
+            }
+        }
+    }
+}
+int main()
+{
+    int arr[3][4] =
+    {
+        {1,2,3,4},
+        {5,7,8,1},
+        {8,4,1,5}
+    };
+    int index = 2;
+    Rd(arr, index);
+}
+
